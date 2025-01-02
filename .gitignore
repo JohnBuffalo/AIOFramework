@@ -3,3 +3,7 @@ Logs
 Library
 Bundles
 UserSettings
+.idea
+Assembly-CSharp.csproj
+GameFramework.csproj
+obj/Debug

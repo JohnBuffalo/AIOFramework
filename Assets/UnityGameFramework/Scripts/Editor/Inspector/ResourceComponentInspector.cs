@@ -19,7 +19,11 @@ namespace UnityGameFramework.Editor
     [CustomEditor(typeof(ResourceComponent))]
     internal sealed class ResourceComponentInspector : GameFrameworkInspector
     {
-        private static readonly string[] ResourceModeNames = new string[] { "Package", "Updatable", "Updatable While Playing" };
+        private static readonly string[] ResourceModeNames = new string[] { 
+            "EditorSimulateMode-编辑器下的模拟模式", 
+            "OfflinePlayMode-离线运行模式", 
+            "HostPlayMode-联机运行模式",
+            "WebPlayMode-WebGL运行模式" };
 
         private SerializedProperty m_ResourceMode = null;
         private SerializedProperty m_ReadWritePathType = null;
@@ -72,7 +76,7 @@ namespace UnityGameFramework.Editor
                     if (selectedIndex != m_ResourceModeIndex)
                     {
                         m_ResourceModeIndex = selectedIndex;
-                        m_ResourceMode.enumValueIndex = selectedIndex + 1;
+                        m_ResourceMode.enumValueIndex = selectedIndex;
                     }
                 }
 
@@ -350,7 +354,7 @@ namespace UnityGameFramework.Editor
 
         private void OnEnable()
         {
-            m_ResourceMode = serializedObject.FindProperty("m_ResourceMode");
+            m_ResourceMode = serializedObject.FindProperty("playMode");
             m_ReadWritePathType = serializedObject.FindProperty("m_ReadWritePathType");
             m_MinUnloadUnusedAssetsInterval = serializedObject.FindProperty("m_MinUnloadUnusedAssetsInterval");
             m_MaxUnloadUnusedAssetsInterval = serializedObject.FindProperty("m_MaxUnloadUnusedAssetsInterval");
@@ -384,7 +388,7 @@ namespace UnityGameFramework.Editor
 
         private void RefreshModes()
         {
-            m_ResourceModeIndex = m_ResourceMode.enumValueIndex > 0 ? m_ResourceMode.enumValueIndex - 1 : 0;
+            m_ResourceModeIndex = m_ResourceMode.enumValueIndex;
         }
 
         private void RefreshTypeNames()

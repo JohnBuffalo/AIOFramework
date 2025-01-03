@@ -52,6 +52,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarTransform.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Utility\StringExtension.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\DataTable\DataRowBase.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\Framework\FrameworkGlobalSettings.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Localization\LoadDictionarySuccessEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\UI\UIFormHelperBase.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Download\UnityWebRequestDownloadAgentHelper.DownloadHandler.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Debugger\DebuggerComponent.InputCompassInformationWindow.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\WebRequest\UnityWebRequestAgentHelper.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\DataTable\DefaultDataTableHelper.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\Enum\ResourcesType.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Localization\LoadDictionaryDependencyAssetEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\WebRequest\WebRequestFailureEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Debugger\DebuggerComponent.RuntimeMemoryInformationWindow.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\ResourceUpdateAllCompleteEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Download\DownloadComponent.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\ReferencePool\ReferencePoolComponent.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\Enum\ServerTypeEnum.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\DataTable\LoadDataTableFailureEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Localization\LoadDictionaryUpdateEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarSingle.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Entity\EntityGroupHelperBase.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\UI\UIComponent.UIGroup.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\BuiltinVersionListSerializer.PackageVersionListSerializeCallback.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\HybridCLR\HybridCLRCustomGlobalSettings.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Debugger\DebuggerComponent.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Sound\PlaySoundInfo.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarInt32.cs" />
@@ -110,8 +114,10 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\WebRequest\WebRequestStartEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\ResourceVerifyStartEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Sound\SoundAgentHelperBase.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\GameFrameworkSettings.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\BuiltinVersionListSerializer.ResourcePackVersionListSerializeCallback.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\UI\UIComponent.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\SettingsUtils.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Entity\EntityComponent.EntityGroup.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\ResourceApplySuccessEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Network\NetworkErrorEventArgs.cs" />
@@ -181,6 +187,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Debugger\DebuggerComponent.InputAccelerationInformationWindow.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Sound\PlaySoundSuccessEventArgs.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\WebRequest\WebRequestAgentHelperBase.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\GameSettings\Enum\AppStageEnum.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Base\ShutdownType.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\FileSystem\DefaultFileSystemHelper.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarByteArray.cs" />
@@ -244,6 +251,7 @@
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarColor32.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Debugger\DebuggerComponent.ConsoleWindow.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\ResourceApplyStartEventArgs.cs" />
+    <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Resource\ResourceComponent.Yoo.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\UI\UIGroupHelperBase.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\Variable\VarQuaternion.cs" />
     <Compile Include="Assets\UnityGameFramework\Scripts\Runtime\FileSystem\FileSystemComponent.cs" />
@@ -931,6 +939,9 @@
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="YooAsset">
+      <HintPath>D:\UnityReferences\AllInOne\Library\ScriptAssemblies\YooAsset.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:\UnityReferences\AllInOne\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

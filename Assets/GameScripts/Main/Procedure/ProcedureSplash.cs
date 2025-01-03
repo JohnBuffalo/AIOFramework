@@ -28,7 +28,7 @@ namespace AIOFramework
             
             if(Entrance.Base.EditorResourceMode)
             {
-                // ChangeState<ProcedurePreload>(procedureOwner);
+                ChangeState<ProcedurePreload>(procedureOwner);
             }
             else if(Entrance.Resource.ResourceMode == ResourceMode.Package)
             {
@@ -37,7 +37,7 @@ namespace AIOFramework
             else
             {
                 //热更新
-                ChangeState<ProcedureCheckVersion>(procedureOwner);
+                ChangeState<ProcedureInitPackage>(procedureOwner);
             }
             
         }

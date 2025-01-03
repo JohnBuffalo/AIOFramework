@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YooAsset;
 
 namespace AIOFramework
 {
@@ -12,6 +13,7 @@ namespace AIOFramework
         
         void InitCustomComponents()
         {
+            YooAssets.Initialize();
             // 注册自定义组件
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
         }

@@ -16,15 +16,16 @@ namespace AIOFramework
             }
         }
         
-        //Todo 切换成YooAsset版本管理信息模板
         public void InitBuildInfo()
         {
-            Log.Error("Todo 切换成YooAsset版本管理信息模板");
+            var settings = SettingsUtils.GlobalSettings;
+            var assetSettings = settings.FrameworkGlobalSettings;
+            var scriptsSettings = settings.HybridClrCustomGlobalSettings;
         }
         
         public void InitDefaultDictionary()
         {
-            Log.Error("Todo 切换成YooAsset包体资源信息");
+            Log.Warning("Todo InitDefaultDictionary");
         }
     }
 }

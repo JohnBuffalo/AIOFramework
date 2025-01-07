@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,8 +14,6 @@ namespace AIOFramework
 {
     public class ProcedureInitPackage : AIOFramework.ProcedureBase
     {
-        private VersionInfo m_VersionInfo = null;
-
         // 指示是否使用原生对话框
         public override bool UseNativeDialog => true;
 
@@ -22,7 +21,8 @@ namespace AIOFramework
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            Entrance.Base.StartCoroutine(InitPackage()); // 初始化资源包
+            Entrance.Event.Fire(this, PatchStateChangeArgs.Create("InitPackage-初始化Package"));
+            InitPackage(procedureOwner).Forget();
         }
 
         private string GetHostServerURL()
@@ -78,13 +78,16 @@ namespace AIOFramework
         }
 
         // 初始化资源包的方法
-        private IEnumerator InitPackage()
+        private async UniTaskVoid InitPackage(ProcedureOwner procedureOwner)
         {
-
             // 获取当前的播放模式和包名
             var playMode = Entrance.Resource.PlayMode;
             var packageName = Entrance.Resource.PackageName;
-            Log.Info($"Init Package , playMode : {playMode}, packageName : {packageName}");
+            
+            procedureOwner.SetData<VarInt32>("PlayMode", (int)playMode);
+            procedureOwner.SetData<VarString>("PackageName", packageName);
+            
+            Log.Info($"InitPackage , playMode : {playMode}, packageName : {packageName}");
 
             // 尝试获取现有的资源包，如果不存在则创建一个新的
             var package = YooAssets.TryGetPackage(packageName);
@@ -139,17 +142,16 @@ namespace AIOFramework
             }
 
             initializationOperation = package.InitializeAsync(initParameters);
-
-
-            yield return initializationOperation;
-
+            await initializationOperation.ToUniTask();
+            
             if (initializationOperation.Status != EOperationStatus.Succeed)
             {
                 Log.Warning($"{initializationOperation.Error}");
+                Entrance.Event.Fire(this, InitPackageFailedArgs.Create());
             }
             else
             {
-                // ChangeState<ProcedureUpdatePackageVersion>();
+                ChangeState<ProcedureUpdatePackageVersion>(procedureOwner);
             }
         }
     }

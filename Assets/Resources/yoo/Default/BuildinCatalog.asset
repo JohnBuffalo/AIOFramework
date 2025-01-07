@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BuildinCatalog
   m_EditorClassIdentifier: 
   PackageName: Default
-  PackageVersion: 0.1
+  PackageVersion: 0.1.0
   Wrappers:
-  - BundleGUID: 5778d0ee21fe2901a994cebd5aa659c7
-    FileName: default_assets_assetart_scenes.bundle
+  - BundleGUID: 7427b4dd644921bb27cb827e9fc42d65
+    FileName: default_assets_assetart_scenes_main.bundle
   - BundleGUID: 66795068c460cb66f36079748d3e535f
     FileName: default_share_assets_settings_urp.bundle
   - BundleGUID: 1455af91f4380652af4b635dae834bb5

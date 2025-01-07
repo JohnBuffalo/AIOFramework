@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FrameworkGlobalSettings:
     m_ScriptAuthor: Default
-    m_ScriptVersion: 0.1
+    m_ScriptVersion: 0.1.0
     m_AppStage: 1
     m_ResourcesArea:
       m_ResAdminType: Default
       m_ResAdminCode: 0
       m_ServerType: 1
-      m_CleanCommitPathRes: 1
+      m_CleanCommitPathRes: 0
       m_InnerResourceSourceUrl: http://127.0.0.1:8081
       m_ExtraResourceSourceUrl: http://127.0.0.1:8081
       m_FormalResourceSourceUrl: http://127.0.0.1:8081

@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YooAsset", "YooAsset.csproj", "{c7f621c8-cf3d-b011-aaa9-9eab1769d6db}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityGameFramework.Runtime", "UnityGameFramework.Runtime.csproj", "{bbadf937-018c-6dbd-179c-727bd8620b59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YooAsset.Editor", "YooAsset.Editor.csproj", "{721cfaff-50da-40b4-2121-993f0bd3b056}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFramework", "GameFramework.csproj", "{49445b93-bb00-93b5-4b67-1624101dddb1}"
 EndProject
@@ -28,8 +32,12 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{c7f621c8-cf3d-b011-aaa9-9eab1769d6db}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c7f621c8-cf3d-b011-aaa9-9eab1769d6db}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bbadf937-018c-6dbd-179c-727bd8620b59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bbadf937-018c-6dbd-179c-727bd8620b59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721cfaff-50da-40b4-2121-993f0bd3b056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721cfaff-50da-40b4-2121-993f0bd3b056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49445b93-bb00-93b5-4b67-1624101dddb1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49445b93-bb00-93b5-4b67-1624101dddb1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39cf7164-d40e-ae74-b6ee-d9518386223a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

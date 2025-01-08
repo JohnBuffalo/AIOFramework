@@ -65,7 +65,7 @@ namespace AIOFramework
                 int totalDownloadCount = downloader.TotalDownloadCount;
                 long totalDownloadBytes = downloader.TotalDownloadBytes;
                 Entrance.Event.Fire(this, FindUpdateFilesArgs.Create(totalDownloadCount, totalDownloadBytes));
-                // CheckDiskSpace(totalDownloadBytes);
+                // CheckDiskSpace(totalDownloadBytes); 
             }
         }
 
@@ -87,7 +87,7 @@ namespace AIOFramework
             string gamePath = Application.dataPath;
             string driveLetter = Path.GetPathRoot(gamePath);
             DriveInfo driveInfo = new DriveInfo(driveLetter);
-            long availableSpaceInBytes = driveInfo.AvailableFreeSpace;
+            long availableSpaceInBytes = driveInfo.AvailableFreeSpace; //IL2CPP不支持
             return availableSpaceInBytes;
         }
 

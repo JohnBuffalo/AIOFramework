@@ -10,12 +10,14 @@ namespace AIOFramework
 
         public string FileName { get; private set; }
         public string Error { get; private set; }
+        public string PackageName { get; private set; }
         
-        public static DownloadFilesFailedArgs Create(string fileName, string error)
+        public static DownloadFilesFailedArgs Create(string package, string fileName, string error)
         {
             var args = ReferencePool.Acquire<DownloadFilesFailedArgs>();
             args.FileName = fileName;
             args.Error = error;
+            args.PackageName = package;
             return args;
         }
         

@@ -28,7 +28,7 @@ namespace AIOFramework
             
             var packageName = procedureOwner.GetData<VarString>("PackageName");
             var package = YooAssets.GetPackage(packageName);
-            var operation = package.ClearCacheBundleFilesAsync(EFileClearMode.ClearUnusedBundleFiles);
+            var operation = package.ClearCacheFilesAsync(EFileClearMode.ClearUnusedBundleFiles);
             await operation;
             Log.Info("ClearUnusedBundleFiles Completed");
             ChangeState<ProcedureUpdateDone>(procedureOwner);

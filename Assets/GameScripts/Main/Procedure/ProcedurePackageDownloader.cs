@@ -65,7 +65,7 @@ namespace AIOFramework
                 int totalDownloadCount = downloader.TotalDownloadCount;
                 long totalDownloadBytes = downloader.TotalDownloadBytes;
                 Entrance.Event.Fire(this, FindUpdateFilesArgs.Create(totalDownloadCount, totalDownloadBytes));
-                CheckDiskSpace(totalDownloadBytes);
+                // CheckDiskSpace(totalDownloadBytes);
             }
         }
 

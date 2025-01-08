@@ -21,8 +21,8 @@ namespace AIOFramework
             await UniTask.WaitForSeconds(0.5f);
 
             ResourceDownloaderOperation downloader = procedureOwner.GetData<VarDownloader>("Downloader");
-            downloader.OnDownloadErrorCallback += OnDownloadError;
-            downloader.OnDownloadProgressCallback += OnDownloadProgress;
+            downloader.DownloadErrorCallback += OnDownloadError;
+            downloader.DownloadUpdateCallback += OnDownloadProgress;
             downloader.BeginDownload();
             await downloader;
 
@@ -34,15 +34,18 @@ namespace AIOFramework
             ChangeState<ProcedureDownloadPackageFinish>(procedureOwner);
         }
 
-        private void OnDownloadError(string name, string error)
+        private void OnDownloadError(DownloadErrorData data)
         {
-            Log.Error("Download error: {0}, {1}", name, error);
-            Entrance.Event.Fire(this, DownloadFilesFailedArgs.Create(name, error));
+            Log.Error("Download error: Package:{0}, File:{1}, Error:{2}", data.PackageName, data.FileName, data.ErrorInfo);
+            Entrance.Event.Fire(this, DownloadFilesFailedArgs.Create(data.PackageName,data.FileName, data.ErrorInfo));
         }
 
-        private void OnDownloadProgress(int totalDownloadCount, int currentDownloadCount, long totalDownloadBytes,
-            long currentDownloadBytes)
+        private void OnDownloadProgress(DownloadUpdateData data)
         {
+            var currentDownloadCount = data.CurrentDownloadCount;
+            var totalDownloadCount = data.TotalDownloadCount;
+            var currentDownloadBytes = data.CurrentDownloadBytes;
+            var totalDownloadBytes = data.TotalDownloadBytes;
             Log.Info("Download progress: {0}/{1}, {2}/{3}", currentDownloadCount, totalDownloadCount,
                 currentDownloadBytes, totalDownloadBytes);
             var args = DownloadProgressArgs.Create(totalDownloadCount, currentDownloadCount, totalDownloadBytes,

@@ -102,17 +102,14 @@ namespace AIOFramework
             if (playMode == EPlayMode.EditorSimulateMode)
             {
                 // 创建模拟构建参数
-                var simulateBuildParam = new EditorSimulateBuildParam();
-                simulateBuildParam.PackageName = packageName;
-
+                var simulateBuildParam = new EditorSimulateBuildParam(packageName);
                 // 执行模拟构建并获取结果
                 var simulateBuildResult = EditorSimulateModeHelper.SimulateBuild(simulateBuildParam);
-
+                var packageRoot = simulateBuildResult.PackageRootDirectory;
                 // 创建编辑器模拟模式参数
                 var createParameters = new EditorSimulateModeParameters();
                 createParameters.EditorFileSystemParameters =
-                    FileSystemParameters.CreateDefaultEditorFileSystemParameters(simulateBuildResult);
-
+                    FileSystemParameters.CreateDefaultEditorFileSystemParameters(packageRoot);
                 initParameters = createParameters;
             }
 

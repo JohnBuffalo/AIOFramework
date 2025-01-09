@@ -63,8 +63,8 @@
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\DefaultCacheFileSystem\Operation\internal\DownloadPackageManifestOperation.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourcePackage\PlayMode\EditorSimulateModeHelper.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourcePackage\PackageManifest.cs" />
-    <Compile Include="Assets\Plugins\YooAsset\Runtime\OperationSystem\EOperationStatus.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\Utility\BufferReader.cs" />
+    <Compile Include="Assets\Plugins\YooAsset\Runtime\OperationSystem\EOperationStatus.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\DefaultBuildinFileSystem\Operation\internal\RequestBuildinPackageVersionOperation.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourcePackage\Operation\DownloaderOperation.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\DefaultWebRemoteFileSystem\Operation\DWRFSLoadBundleOperation.cs" />
@@ -157,8 +157,8 @@
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\DefaultEditorFileSystem\Operation\DEFSLoadBundleOperation.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourcePackage\PackageBundle.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\Utility\YooUtility.cs" />
-    <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourceManager\Handle\SubAssetsHandle.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\EFileVerifyResult.cs" />
+    <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourceManager\Handle\SubAssetsHandle.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\ResourcePackage\AssetInfo.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\DownloadSystem\Operation\Internal\UnityWebDataRequestOperation.cs" />
     <Compile Include="Assets\Plugins\YooAsset\Runtime\FileSystem\DefaultCacheFileSystem\Operation\internal\ClearCacheBundleFilesByTagsOperaiton.cs" />
@@ -503,8 +503,14 @@
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>D:\UnityReferences\AllInOne\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
+    <Reference Include="dnlib">
+      <HintPath>D:\UnityReferences\AllInOne\Library\PackageCache\com.code-philosophy.hybridclr@b176d63d93\Plugins\dnlib.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>D:\UnityReferences\AllInOne\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="LZ4">
+      <HintPath>D:\UnityReferences\AllInOne\Library\PackageCache\com.code-philosophy.hybridclr@b176d63d93\Plugins\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>D:\UnityReferences\AllInOne\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>

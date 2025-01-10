@@ -1,0 +1,84 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AIOFramework.BuiltinDataComponent" preserve="all" />
+    <type fullname="AIOFramework.Entrance" preserve="all" />
+  </assembly>
+  <assembly fullname="HotUpdate, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AIOFramework.GameEntrance" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Volume" preserve="all" />
+    <type fullname="UnityEngine.Rendering.VolumeProfile" preserve="all" />
+    <type fullname="UnityEngine.Rendering.BoolParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.ClampedFloatParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.ClampedIntParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.ColorParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.MinFloatParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.TextureParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Vector2Parameter" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.Bloom" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.Tonemapping" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.Vignette" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.DownscaleParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.HDRACESPresetParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.NeutralRangeReductionModeParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.TonemappingModeParameter" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.Cubemap" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LightmapSettings" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.RenderSettings" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
+    <type fullname="UnityEngine.EventSystems.StandaloneInputModule" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityGameFramework.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityGameFramework.Runtime.BaseComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.ConfigComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.DataNodeComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.DataTableComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.DebuggerComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.DownloadComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.EditorResourceComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.EntityComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.EventComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.FileSystemComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.FsmComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.LocalizationComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.NetworkComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.ObjectPoolComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.ProcedureComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.ReferencePoolComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.ResourceComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.SceneComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.SettingComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.SoundComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.UIComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.WebRequestComponent" preserve="all" />
+    <type fullname="UnityGameFramework.Runtime.DebuggerComponent/ConsoleWindow" preserve="nothing" serialized="true" />
+    <type fullname="UnityGameFramework.Runtime.UIComponent/UIGroup" preserve="nothing" serialized="true" />
+  </assembly>
+</linker>

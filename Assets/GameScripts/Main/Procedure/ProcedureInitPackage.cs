@@ -95,7 +95,7 @@ namespace AIOFramework
             {
                 package = YooAssets.CreatePackage(packageName);
             }
-
+            YooAssets.SetDefaultPackage(package);
             InitializationOperation initializationOperation = null;
             InitializeParameters initParameters = null;
             // 根据播放模式进行初始化

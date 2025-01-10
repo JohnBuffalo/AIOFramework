@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AssetBundleCollectorSetting
   m_EditorClassIdentifier: 
   ShowPackageView: 1
-  ShowEditorAlias: 1
+  ShowEditorAlias: 0
   UniqueBundleName: 1
   Packages:
   - PackageName: Default
@@ -37,37 +37,26 @@ MonoBehaviour:
         FilterRuleName: CollectScene
         AssetTags: 
         UserData: 
-      - CollectPath: Assets/AssetRaw/Scenes
-        CollectorGUID: 5d0f90359b9f3834f997adfff9e5904f
-        CollectorType: 2
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackSeparately
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
     - GroupName: UI
       GroupDesc: 
       AssetTags: 
-      ActiveRuleName: EnableGroup
-      Collectors:
-      - CollectPath: Assets/AssetArt/UI
-        CollectorGUID: 64d0ca02a34af9041bb05bb966806a37
-        CollectorType: 0
-        AddressRuleName: AddressByFolderAndFileName
-        PackRuleName: PackTopDirectory
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
+      ActiveRuleName: DisableGroup
+      Collectors: []
     - GroupName: Mat
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: DisableGroup
+      Collectors: []
+    - GroupName: HotUpdate
       GroupDesc: 
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/AssetRaw/Materials
-        CollectorGUID: 67eea9c10b2c1d14bafb5cf04c08d2aa
-        CollectorType: 1
-        AddressRuleName: AddressDisable
-        PackRuleName: PackTopDirectory
+      - CollectPath: Assets/AssetArt/HotUpdate
+        CollectorGUID: 2c685b341480c8a43b1d20f9624530dc
+        CollectorType: 0
+        AddressRuleName: AddressByFolderAndFileName
+        PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 

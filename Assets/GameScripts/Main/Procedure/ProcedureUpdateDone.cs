@@ -12,6 +12,7 @@ namespace AIOFramework
             base.OnEnter(procedureOwner);
             Log.Info("Update Done");
             Entrance.Event.Fire(this, PatchStateChangeArgs.Create("Update Done"));
+            ChangeState<ProcedureLoadAssembly>(procedureOwner);
         }
     }
 }

@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-namespace AIOFramework
+namespace AIOFramework.Editor
 {
     public class HotfixGeneratorMenu
     {
@@ -17,8 +17,8 @@ namespace AIOFramework
         {
             var target = EditorUserBuildSettings.activeBuildTarget;
             CompileDllCommand.CompileDll(target);
-
             CopyToAssets();
+            AssetDatabase.Refresh();
         }
 
         public static void CopyToAssets()

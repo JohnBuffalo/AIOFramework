@@ -11,6 +11,11 @@ namespace AIOFramework
         {
             Log.Info("GameEntrance Start");
         }
+
+        public static void Main()
+        {
+            Log.Info("GameEntrance Main");
+        }
     } 
 }
 

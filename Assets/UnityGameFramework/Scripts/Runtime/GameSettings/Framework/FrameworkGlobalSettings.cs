@@ -203,9 +203,7 @@ public class FrameworkGlobalSettings
         new ScriptGenerateRuler("m_group", "ToggleGroup"),
         new ScriptGenerateRuler("m_curve", "AnimationCurve"),
         new ScriptGenerateRuler("m_canvasGroup", "CanvasGroup"),
-#if ENABLE_TEXTMESHPRO
         new ScriptGenerateRuler("m_tmp","TextMeshProUGUI"),
-#endif
     };
 
     public List<ScriptGenerateRuler> ScriptGenerateRule => scriptGenerateRule;

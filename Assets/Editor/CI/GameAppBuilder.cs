@@ -39,20 +39,52 @@ namespace AIOFramework.Editor.CI
         {
             var settings = SettingsUtils.GlobalSettings.FrameworkGlobalSettings;
             var nextVersion = GetNextMajorVersion();
+            settings.ScriptVersion = nextVersion;
             //构造patch packages
             var buildPackageSuccess = BuildPackages(nextVersion, EBuildinFileCopyOption.ClearAndCopyAll);
+            
             if (!buildPackageSuccess)
             {
                 Debug.LogError("Build Package failed");
-                AssetDatabase.Refresh();
                 return;
             }
-
             //生成app包体
-            settings.ScriptVersion = nextVersion;
+            var buildAppSuccess = BuildApp();
+            if (!buildAppSuccess) return;
             //资源发布
             CopyBundlesToCdn();
-            AssetDatabase.Refresh();
+        }
+
+        private static bool BuildApp()
+        {
+            Debug.Log("Build App");
+            var buildTarget = EditorUserBuildSettings.activeBuildTarget;
+            if (buildTarget != BuildTarget.StandaloneWindows && buildTarget != BuildTarget.StandaloneWindows64)
+            {
+                Debug.LogError("目前只支持Windows打包");
+                return false;
+            }
+            string outputPath = YooAsset.PathUtility.RegularPath(Application.dataPath +
+                                                                 $"/../Build/{buildTarget}/AIOTrail.exe");
+            var buildOptions = BuildOptions.CompressWithLz4;
+
+            BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions()
+            {
+                scenes = new[]{"Assets/AssetArt/Scenes/main.unity"},
+                locationPathName = outputPath,
+                options = buildOptions,
+                target = buildTarget,
+                targetGroup = BuildTargetGroup.Standalone
+            };
+
+            var report = BuildPipeline.BuildPlayer(buildPlayerOptions);
+            if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
+            {
+                Debug.LogError("打包失败");
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -63,13 +95,13 @@ namespace AIOFramework.Editor.CI
         {
             var packageName = AssetBundleCollectorSettingData.Setting.Packages[0].PackageName;
             var builtinPath = Application.streamingAssetsPath + $"/yoo/{packageName}";
-            
-            if (!Directory.Exists(builtinPath) || Directory.GetFiles(builtinPath).Length==0)
+
+            if (!Directory.Exists(builtinPath) || Directory.GetFiles(builtinPath).Length == 0)
             {
                 Debug.LogError("请先构建大版本");
                 return;
             }
-            
+
             if (EditorUtility.DisplayDialog("提示", $"开始构建热更版本,目标版本号 : {GetNextMinorVersion()}！", "Yes", "No"))
             {
                 EditorTools.ClearUnityConsole();
@@ -90,7 +122,6 @@ namespace AIOFramework.Editor.CI
             if (!buildPackageSuccess)
             {
                 Debug.LogError("Build Package failed");
-                AssetDatabase.Refresh();
                 return;
             }
 
@@ -105,10 +136,13 @@ namespace AIOFramework.Editor.CI
             //1.编译C#代码
             PrebuildCommand.GenerateAll();
             //2.拷贝HotUpdate和AOT到指定目录
-            CopyDLLToAssets();
+            CopyDllToAssets();
             //3.打包资源
             AssetBundleCollectorSettingData.FixFile();
-            var buildBundleResult = RunBuildBundle_SBP(nextVersion, EditorUserBuildSettings.activeBuildTarget, copyOption);
+            AssetDatabase.Refresh();
+            var buildBundleResult =
+                RunBuildBundle_SBP(nextVersion, EditorUserBuildSettings.activeBuildTarget, copyOption);
+            AssetDatabase.Refresh();
             if (!buildBundleResult)
             {
                 Debug.LogError("Build Bundle Failed");
@@ -155,11 +189,14 @@ namespace AIOFramework.Editor.CI
         private static void CopyBundlesToCdnInternal()
         {
             var settings = SettingsUtils.GlobalSettings.FrameworkGlobalSettings;
-            var destDirectoryPath = GetCdnURL() + "/" + settings.ScriptVersion;
+            var version = settings.ScriptVersion.Split('.');
+            var year = version[0];
+            var major = version[1];
+            var destDirectoryPath = GetCdnURL() + "/" + $"{year}.{major}.0";
             var buildTarget = EditorUserBuildSettings.activeBuildTarget;
             var packageName = AssetBundleCollectorSettingData.Setting.Packages[0].PackageName;
             var srcDirectoryPath = YooAsset.PathUtility.RegularPath(Application.dataPath +
-                                       $"/../Bundles/{buildTarget}/{packageName}/{settings.ScriptVersion}");
+                                                                    $"/../Bundles/{buildTarget}/{packageName}/{settings.ScriptVersion}");
             // Debug.Log(destDirectoryPath);
             // Debug.Log(srcDirectoryPath);
             if (Directory.Exists(destDirectoryPath))
@@ -185,7 +222,8 @@ namespace AIOFramework.Editor.CI
             for (int i = 0; i < srcFiles.Length; i++)
             {
                 var fileName = Path.GetFileName(srcFiles[i]);
-                File.Copy(srcFiles[i], GameFramework.Utility.Path.GetRegularPath($"{destDirectoryPath}/{fileName}"));
+                File.Copy(srcFiles[i], GameFramework.Utility.Path.GetRegularPath($"{destDirectoryPath}/{fileName}"),
+                    true);
             }
         }
 

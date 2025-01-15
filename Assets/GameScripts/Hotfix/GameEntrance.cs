@@ -14,8 +14,8 @@ namespace AIOFramework
         {
             Log.Info("GameEntrance Start");
 
-            await LoadPrefabTest();
-            await ListTest();
+            // await LoadPrefabTest();
+            // await ListTest();
         }
 
         private async UniTask ListTest()
@@ -24,6 +24,8 @@ namespace AIOFramework
             m_list.Add(new GameObject("1"));
             m_list.Add(new GameObject("2"));
             m_list.Add(new GameObject("3"));
+            m_list.Add(new GameObject("4"));
+            m_list.Add(new GameObject("5"));
             Log.Info($"List length {m_list.Count}");
         }
 
@@ -35,8 +37,8 @@ namespace AIOFramework
             await handler.ToUniTask();
 
             var prefab = handler.AssetObject as GameObject;
-            Instantiate(prefab,Vector3.left,Quaternion.identity );
-            Instantiate(prefab,Vector3.right,Quaternion.identity );
+            Instantiate(prefab,Vector3.one*2,Quaternion.identity );
+            Instantiate(prefab,Vector3.right*2,Quaternion.identity );
             Log.Info("LoadPrefabTest Done");
         }
     } 

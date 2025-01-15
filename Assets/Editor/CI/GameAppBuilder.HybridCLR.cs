@@ -15,14 +15,14 @@ namespace AIOFramework.Editor.CI
         {
             var target = EditorUserBuildSettings.activeBuildTarget;
             CompileDllCommand.CompileDll(target);
-            CopyDLLToAssets();
-            AssetDatabase.Refresh();
+            CopyDllToAssets();
         }
 
-        public static void CopyDLLToAssets()
+        public static void CopyDllToAssets()
         {
             CopyAOTAssembliesToAssets();
             CopyHotUpdateAssembliesToAssets();
+            AssetDatabase.Refresh();
         }
 
         public static void CopyAOTAssembliesToAssets()

@@ -40,8 +40,16 @@ MonoBehaviour:
     - GroupName: UI
       GroupDesc: 
       AssetTags: 
-      ActiveRuleName: DisableGroup
-      Collectors: []
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/AssetArt/UI
+        CollectorGUID: 64d0ca02a34af9041bb05bb966806a37
+        CollectorType: 0
+        AddressRuleName: AddressByFolderAndFileName
+        PackRuleName: PackTopDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
     - GroupName: Mat
       GroupDesc: 
       AssetTags: 
@@ -54,6 +62,19 @@ MonoBehaviour:
       Collectors:
       - CollectPath: Assets/AssetArt/HotUpdate
         CollectorGUID: 2c685b341480c8a43b1d20f9624530dc
+        CollectorType: 0
+        AddressRuleName: AddressByFolderAndFileName
+        PackRuleName: PackSeparately
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Effect
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/AssetArt/Effects
+        CollectorGUID: 916aabc1885bbb548b1d11a221649000
         CollectorType: 0
         AddressRuleName: AddressByFolderAndFileName
         PackRuleName: PackSeparately

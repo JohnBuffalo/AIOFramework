@@ -742,6 +742,10 @@
       <Project>{bbadf937-018c-6dbd-179c-727bd8620b59}</Project>
       <Name>UnityGameFramework.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{4083a8f0-363d-4838-7073-3b02b24e14f3}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

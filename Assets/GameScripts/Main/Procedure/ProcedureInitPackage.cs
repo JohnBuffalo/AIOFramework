@@ -146,10 +146,7 @@ namespace AIOFramework
                 Log.Warning($"{initializationOperation.Error}");
                 Entrance.Event.Fire(this, InitPackageFailedArgs.Create());
             }
-            else
-            {
-                ChangeState<ProcedureUpdatePackageVersion>(procedureOwner);
-            }
+            ChangeState<ProcedureUpdatePackageVersion>(procedureOwner);
         }
     }
 }

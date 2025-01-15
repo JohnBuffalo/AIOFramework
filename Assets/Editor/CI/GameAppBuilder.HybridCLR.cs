@@ -2,26 +2,24 @@ using System.IO;
 using HybridCLR.Editor;
 using HybridCLR.Editor.Commands;
 using HybridCLR.Editor.HotUpdate;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-namespace AIOFramework.Editor
+namespace AIOFramework.Editor.CI
 {
-    public class HotfixGeneratorMenu
+    public partial class GameAppBuilder
     {
-        private const string HotfixAssetPath = "AssetArt/HotUpdate";
 
-        [MenuItem("HybridCLR/Build/Build HotUpdate.dll")]
+        [MenuItem("GameBuilder/HybridCLR/BuildAndCopyDLL 编译DLL并拷贝到热更目录")]
         public static void GeneratorHotfix()
         {
             var target = EditorUserBuildSettings.activeBuildTarget;
             CompileDllCommand.CompileDll(target);
-            CopyToAssets();
+            CopyDLLToAssets();
             AssetDatabase.Refresh();
         }
 
-        public static void CopyToAssets()
+        public static void CopyDLLToAssets()
         {
             CopyAOTAssembliesToAssets();
             CopyHotUpdateAssembliesToAssets();
@@ -32,10 +30,7 @@ namespace AIOFramework.Editor
             var target = EditorUserBuildSettings.activeBuildTarget;
             string aotAssembliesSrcDir = SettingsUtil.GetAssembliesPostIl2CppStripDir(target);
             string aotAssembliesDstDir = Path.Combine(Application.dataPath, HotfixAssetPath);
-            if (!Directory.Exists(aotAssembliesDstDir))
-            {
-                Directory.CreateDirectory(aotAssembliesDstDir);
-            }
+            
             foreach (var dll in SettingsUtil.AOTAssemblyNames)
             {
                 string srcDllPath = $"{aotAssembliesSrcDir}/{dll}.dll";
@@ -57,10 +52,6 @@ namespace AIOFramework.Editor
 
             string hotfixDllSrcDir = SettingsUtil.GetHotUpdateDllsOutputDirByTarget(target);
             string hotfixAssembliesDstDir = Path.Combine(Application.dataPath, HotfixAssetPath);
-            if (!Directory.Exists(hotfixAssembliesDstDir))
-            {
-                Directory.CreateDirectory(hotfixAssembliesDstDir);
-            }
             foreach (var dll in SettingsUtil.HotUpdateAssemblyFilesExcludePreserved)
             {
                 string dllPath = YooAsset.PathUtility.RegularPath($"{hotfixDllSrcDir}/{dll}");
@@ -70,7 +61,7 @@ namespace AIOFramework.Editor
             }
         }
         
-        [MenuItem("HybridCLR/Build/CheckAccessMissingMetadata")]
+        [MenuItem("GameBuilder/HybridCLR/CheckAccessMissingMetadata")]
         public static void CheckAccessMissingMetadata()
         {
             BuildTarget target = EditorUserBuildSettings.activeBuildTarget;
@@ -94,6 +85,5 @@ namespace AIOFramework.Editor
                 }
             }
         }
-
     }
 }

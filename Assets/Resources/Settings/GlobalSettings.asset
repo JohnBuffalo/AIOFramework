@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FrameworkGlobalSettings:
     m_ScriptAuthor: Default
-    m_ScriptVersion: 0.1.0
+    m_ScriptVersion: 0.1.2
     m_AppStage: 1
     m_ResourcesArea:
       m_ResAdminType: Default
@@ -91,5 +91,5 @@ MonoBehaviour:
     - UnityGameFramework.Runtime.dll
     LogicMainDllName: GameLogic.dll
     AssemblyTextAssetExtension: .bytes
-    AssemblyTextAssetPath: AssetRaw/DLL
+    AssemblyTextAssetPath: AssetArt/HotUpdate
     HybridCLRGlobalSettings: Settings/HybridCLRGlobalSettings

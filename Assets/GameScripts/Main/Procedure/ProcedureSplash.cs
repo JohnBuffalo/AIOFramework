@@ -10,8 +10,8 @@ namespace AIOFramework
         public override bool UseNativeDialog => true;
         private bool m_SplashFinished = false;
         private bool m_SplashStarted = false;
-        
-        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, 
+
+        protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner,
             float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
@@ -20,26 +20,14 @@ namespace AIOFramework
             {
                 PlaySplash();
             }
-            
+
             if (!m_SplashFinished)
             {
                 return;
             }
-            
-            if(Entrance.Base.EditorResourceMode)
-            {
-                // ChangeState<ProcedurePreload>(procedureOwner);
-            }
-            else if(Entrance.Resource.ResourceMode == ResourceMode.Package)
-            {
-                // ChangeState<ProcedureInitResources>(procedureOwner);
-            }
-            else
-            {
-                //热更新
-                ChangeState<ProcedureInitPackage>(procedureOwner);
-            }
-            
+
+            ChangeState<ProcedureInitPackage>(procedureOwner);
+
         }
 
         private void PlaySplash()

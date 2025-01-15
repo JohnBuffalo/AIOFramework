@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Build.Pipeline.Interfaces;
 
 namespace YooAsset.Editor
 {

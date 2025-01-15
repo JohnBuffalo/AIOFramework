@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[0]
@@ -623,19 +623,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[8]
-      value: AIOFramework.ProcedureUpdateDone
+      value: AIOFramework.ProcedureStartGame
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[9]
-      value: AIOFramework.ProcedureUpdatePackageManifest
+      value: AIOFramework.ProcedureUpdateDone
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[10]
-      value: AIOFramework.ProcedureUpdatePackageVersion
+      value: AIOFramework.ProcedureUpdatePackageManifest
       objectReference: {fileID: 0}
     - target: {fileID: 11405216, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_AvailableProcedureTypeNames.Array.data[11]
-      value: AIOFramework.ProcedureUpdateVersion
+      value: AIOFramework.ProcedureUpdatePackageVersion
       objectReference: {fileID: 0}
     - target: {fileID: 11447244, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_Enabled

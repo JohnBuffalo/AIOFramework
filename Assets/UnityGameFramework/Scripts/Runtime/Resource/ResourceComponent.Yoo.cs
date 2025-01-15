@@ -10,9 +10,18 @@ namespace UnityGameFramework.Runtime
         [SerializeField] private EPlayMode playMode = EPlayMode.EditorSimulateMode;
 
         public string PackageName = "Default";
-        
-        public EPlayMode PlayMode => playMode;
-        
-        
+
+        public EPlayMode PlayMode
+        {
+            get
+            {
+#if UNITY_EDITOR
+                return playMode;
+#else
+                return EPlayMode.HostPlayMode;
+
+#endif
+            }
+        }
     }
 }

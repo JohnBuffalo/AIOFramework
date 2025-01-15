@@ -4,7 +4,8 @@
     "references": [
         "GUID:e34a5702dd353724aa315fb8011f08c3",
         "GUID:b944316b58f630b49a038f87f41f55ef",
-        "GUID:363c5eb08ff8e6a439b85e37b8c20d96"
+        "GUID:363c5eb08ff8e6a439b85e37b8c20d96",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

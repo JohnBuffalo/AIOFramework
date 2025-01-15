@@ -68,7 +68,8 @@ namespace UnityGameFramework.Editor
             {
                 if (EditorApplication.isPlaying && IsPrefabInHierarchy(t.gameObject))
                 {
-                    EditorGUILayout.EnumPopup("Resource Mode", t.ResourceMode);
+                    // EditorGUILayout.EnumPopup("Resource Mode", t.ResourceMode);
+                    EditorGUILayout.EnumPopup("Resource Mode", t.PlayMode);
                 }
                 else
                 {

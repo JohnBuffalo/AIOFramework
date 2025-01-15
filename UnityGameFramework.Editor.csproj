@@ -820,6 +820,10 @@
       <Project>{49445b93-bb00-93b5-4b67-1624101dddb1}</Project>
       <Name>GameFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="YooAsset.csproj">
+      <Project>{c7f621c8-cf3d-b011-aaa9-9eab1769d6db}</Project>
+      <Name>YooAsset</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

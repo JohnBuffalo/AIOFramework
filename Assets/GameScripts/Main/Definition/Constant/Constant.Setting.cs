@@ -14,5 +14,10 @@
             public const string UISoundMuted = "Setting.UISoundMuted";
             public const string UISoundVolume = "Setting.UISoundVolume";
         }
+
+        public static class HotUpdate
+        {
+            public const string HotUpdateLocationPrefix = "HotUpdate_";
+        }
     }
 }

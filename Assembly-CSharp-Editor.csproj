@@ -45,7 +45,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\HotfixGeneratorMenu.cs" />
+    <Compile Include="Assets\Editor\CI\GameAppBuilder.YooAssets.cs" />
+    <Compile Include="Assets\Editor\CI\GameAppBuilder.HybridCLR.cs" />
+    <Compile Include="Assets\Editor\CI\GameAppBuilder.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -850,13 +852,9 @@
       <Project>{f398b553-08b4-9c5e-3b86-a8f009628fb5}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="UniTask.Addressables.csproj">
-      <Project>{df8a34a6-702e-85dc-0d86-18e13ac0048f}</Project>
-      <Name>UniTask.Addressables</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniTask.Linq.csproj">
-      <Project>{0c6b4048-3414-40b0-8909-f996058d575c}</Project>
-      <Name>UniTask.Linq</Name>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{79dc3ff2-3498-b386-eaf0-8b320195bf4d}</Project>
+      <Name>UniTask.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="UnityGameFramework.Runtime.csproj">
       <Project>{bbadf937-018c-6dbd-179c-727bd8620b59}</Project>
@@ -866,29 +864,33 @@
       <Project>{c7f621c8-cf3d-b011-aaa9-9eab1769d6db}</Project>
       <Name>YooAsset</Name>
     </ProjectReference>
-    <ProjectReference Include="UniTask.csproj">
-      <Project>{4083a8f0-363d-4838-7073-3b02b24e14f3}</Project>
-      <Name>UniTask</Name>
+    <ProjectReference Include="YooAsset.Editor.csproj">
+      <Project>{721cfaff-50da-40b4-2121-993f0bd3b056}</Project>
+      <Name>YooAsset.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="GameFramework.csproj">
       <Project>{49445b93-bb00-93b5-4b67-1624101dddb1}</Project>
       <Name>GameFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="UniTask.TextMeshPro.csproj">
-      <Project>{79dc3ff2-3498-b386-eaf0-8b320195bf4d}</Project>
-      <Name>UniTask.TextMeshPro</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityGameFramework.Editor.csproj">
       <Project>{39cf7164-d40e-ae74-b6ee-d9518386223a}</Project>
       <Name>UnityGameFramework.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{df8a34a6-702e-85dc-0d86-18e13ac0048f}</Project>
+      <Name>UniTask.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{4083a8f0-363d-4838-7073-3b02b24e14f3}</Project>
+      <Name>UniTask</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.DOTween.csproj">
       <Project>{459d4f69-310f-fe2e-16d3-77714c8dda61}</Project>
       <Name>UniTask.DOTween</Name>
     </ProjectReference>
-    <ProjectReference Include="YooAsset.Editor.csproj">
-      <Project>{721cfaff-50da-40b4-2121-993f0bd3b056}</Project>
-      <Name>YooAsset.Editor</Name>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{0c6b4048-3414-40b0-8909-f996058d575c}</Project>
+      <Name>UniTask.Linq</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

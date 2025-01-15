@@ -124,6 +124,7 @@ public class FrameworkGlobalSettings
     public string ScriptVersion
     {
         get { return m_ScriptVersion; }
+        set { m_ScriptVersion = value; }
     }
 
     [SerializeField] private AppStageEnum m_AppStage = AppStageEnum.Debug;

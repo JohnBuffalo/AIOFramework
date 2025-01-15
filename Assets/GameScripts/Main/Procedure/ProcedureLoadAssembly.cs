@@ -9,14 +9,11 @@ using UnityGameFramework.Runtime;
 using YooAsset;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
-
 namespace AIOFramework
 {
     public class ProcedureLoadAssembly : AIOFramework.ProcedureBase
     {
         public override bool UseNativeDialog { get; }
-
-        private const string HotUpdateLocationPrefix = "HotUpdate_";
 
         private static Dictionary<string, byte[]> s_assetDatas = new Dictionary<string, byte[]>();
         private const string AssemblyFileSuffix = ".dll.bytes";
@@ -37,7 +34,15 @@ namespace AIOFramework
         {
             base.OnEnter(procedureOwner);
             Log.Info("ProcedureLoadAssembly OnEnter");
-            _ = LoadAssemblies();
+            var playMode = Entrance.Resource.PlayMode;
+            if (playMode == EPlayMode.HostPlayMode)
+            {
+                LoadAssemblies(procedureOwner);
+            }
+            else
+            {
+                LoadGameEntrance(procedureOwner);
+            }
         }
 
         private byte[] ReadBytesFromCache(string dllName)
@@ -45,16 +50,16 @@ namespace AIOFramework
             return s_assetDatas[dllName];
         }
 
-        private async UniTask LoadAssemblies()
+        private async UniTask LoadAssemblies(ProcedureOwner procedureOwner)
         {
             await CacheAssembliesBytes();
-            Log.Info("CacheAssembliesBytes Finish");
-            await LoadMetadataForAOTAssemblies();
-            Log.Info("LoadMetadataForAOTAssemblies Finish");
-            await LoadHotUpdateAssembly();
-            Log.Info("LoadHotUpdateAssembly Finish");
-            await LoadGameEntrance();
-            Log.Info("LoadGameEntrance Finish");
+            Log.Info("[LoadAssemblies] CacheAssembliesBytes Finish");
+            LoadMetadataForAOTAssemblies();
+            Log.Info("[LoadAssemblies] LoadMetadataForAOTAssemblies Finish");
+            LoadHotUpdateAssembly();
+            Log.Info("[LoadAssemblies] LoadHotUpdateAssembly Finish");
+            LoadGameEntrance(procedureOwner);
+            Log.Info("[LoadAssemblies] LoadGameEntrance Finish");
         }
 
         private async UniTask CacheAssembliesBytes()
@@ -72,7 +77,7 @@ namespace AIOFramework
 
         private async UniTask LoadAssemblyBytes(string fileName)
         {
-            string location = $"{HotUpdateLocationPrefix}{fileName}.dll";
+            string location = $"{Constant.HotUpdate.HotUpdateLocationPrefix}{fileName}.dll";
             var handler = YooAssets.LoadAssetAsync<TextAsset>(location);
             await handler.ToUniTask();
             if (handler.Status != EOperationStatus.Succeed)
@@ -98,7 +103,7 @@ namespace AIOFramework
             Log.Info($"Load {fileName}.dll.bytes success");
         }
 
-        private async UniTask LoadMetadataForAOTAssemblies()
+        private void LoadMetadataForAOTAssemblies()
         {
             HomologousImageMode mode = HomologousImageMode.SuperSet;
             foreach (var aotDllName in AOTMetaAssemblyFiles)
@@ -110,37 +115,34 @@ namespace AIOFramework
             }
         }
 
-        private async UniTask LoadHotUpdateAssembly()
+        private void LoadHotUpdateAssembly()
         {
             Assembly assembly;
 #if !UNITY_EDITOR
             byte[] assemblyData = ReadBytesFromCache("HotUpdate");
             assembly = Assembly.Load(assemblyData);
-#else
-            assembly = System.AppDomain.CurrentDomain.GetAssemblies().First(a=>a.GetName().Name == "HotUpdate");
-#endif
             Log.Info($"Load assembly: {assembly.GetName()} success ");
+#else
+            assembly = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "HotUpdate");
+            Log.Info($"Find assembly: {assembly.GetName()} success ");
+#endif
 
-            Type entryType = assembly.GetType("AIOFramework.GameEntrance"); //必须带上命名空间,不然找不到
-            if (entryType == null)
-            {
-                Log.Warning("Can't find GameEntrance in assembly");
-            }
-            else
-            {
-                MethodInfo method = entryType.GetMethod("Main",
-                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-                method.Invoke(null, null);
-            }
+            // Type entryType = assembly.GetType("AIOFramework.GameEntrance"); //必须带上命名空间,不然找不到
+            // if (entryType == null)
+            // {
+            //     Log.Warning("Can't find GameEntrance in assembly");
+            // }
+            // else
+            // {
+            //     MethodInfo method = entryType.GetMethod("Main",
+            //         BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            //     method.Invoke(null, null);
+            // }
         }
 
-        private async UniTask LoadGameEntrance()
+        private void LoadGameEntrance(ProcedureOwner procedureOwner)
         {
-            var entrance = YooAssets.LoadAssetAsync<GameObject>($"{HotUpdateLocationPrefix}GameEntrance");
-            await entrance.ToUniTask();
-
-            var gameEntrance = GameObject.Instantiate(entrance.AssetObject, Vector3.zero, Quaternion.identity);
-            GameObject.DontDestroyOnLoad(gameEntrance);
+            ChangeState<ProcedureStartGame>(procedureOwner);
         }
     }
 }
